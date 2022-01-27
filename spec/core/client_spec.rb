@@ -75,7 +75,7 @@ describe ZendeskAPI::Client do
       end
 
       it "should not build token middleware" do
-        expect(subject.connection.headers["Authorization"]).to be_nil
+        expect(subject.connection.builder.handlers.index(Faraday::Request::Authorization)).to be_nil
       end
     end
 
