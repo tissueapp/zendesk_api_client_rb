@@ -92,7 +92,7 @@ describe ZendeskAPI::Client do
       end
 
       it "should build token middleware" do
-        expect(subject.connection.headers["Authorization"]).to match(/Bearer/)
+        expect(subject.connection.builder.handlers.index(Faraday::Request::Authorization)).to be
       end
     end
 
